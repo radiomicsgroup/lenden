@@ -1,0 +1,39 @@
+{
+    "Version" :  1.0,
+    "HasError": 0, // 1 error 0 No error
+    "DisplayType": "grid|row",
+    "Results": [
+        {
+            "Description": "Description of the output",
+            "Help": "Adipisicing reprehenderit eu dolor sit reprehenderit aute fugiat eu dolor anim.",
+            "Type": "str|int|float|percent|image|images|numberarray",
+            "Path": "file|folder path",
+            "Size": "normal|wide|big",
+            "Format": "format description" // Depends on the UI(image, bar, spliter ...)
+        },
+        {
+            "Description": "Description of the output",
+            "Help": "Adipisicing reprehenderit eu dolor sit reprehenderit aute fugiat eu dolor anim.",
+            "Type": "str|int|float|percent|image|images|numberarray",
+            "Path": "file|folder path",
+            "Size": "normal|wide|big",
+            "Format": "format description" // Depends on the UI(image, bar, spliter ...)
+        },
+        {
+            "Description": "Description of the output",
+            "Help": "Adipisicing reprehenderit eu dolor sit reprehenderit aute fugiat eu dolor anim.",
+            "Type": "str|int|float|percent|image|images|numberarray",
+            "Path": "file|folder path",
+            "Size": "normal|wide|big",
+            "Format": "format description" // Depends on the UI(image, bar, spliter ...)
+        }
+    ],
+    "Logs": {
+        "Description": "Description of the error",
+        "Path": [
+            "logfile path1",
+            "logfile path2",
+            "logfile path3"
+        ]
+    }
+}
