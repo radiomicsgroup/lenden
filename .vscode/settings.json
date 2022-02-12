@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
-        "lenden"
+        "lenden",
+        "Radiomics"
     ],
     "python.testing.unittestArgs": [
         "-v",

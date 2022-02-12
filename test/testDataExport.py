@@ -1,7 +1,6 @@
 import unittest
-from unittest.mock import patch
 from src.lenden.dataexport import *
-import json
+
 
 
 class TestDataExports(unittest.TestCase):
@@ -34,6 +33,16 @@ class TestDataExports(unittest.TestCase):
 
         data = DataExport(Version=0.1, HasError=False,
                           DisplayType=DisplayType.grid, Results=[data1, data2], Logs=None)
+
+        dem0 = data.getJSON()
+        data2 = DataExport.fromJSON(dem0)
+
+        self.assertEqual(data, data2)
+
+    def test_DataExport_With_Error(self):
+        data = DataExport(Version=0.1, HasError=True,
+                          DisplayType=DisplayType.grid, Results=[], 
+                          Logs=DataLog("Voluptate sint sint eu aliqua consequat culpa nisi fugiat nostrud aute adipisicing.", ["/path/log1","/path/log2","/path/log3"]))
 
         dem0 = data.getJSON()
         data2 = DataExport.fromJSON(dem0)

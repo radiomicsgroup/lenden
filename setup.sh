@@ -10,4 +10,4 @@ python3 -m pip install --upgrade twine
 
 # Generate token 
 # tr -dc 'A-Za-z0-9' </dev/urandom | head -c 40  ; echo
-#python3 -m twine upload --repository testpypi dist/*
+#python3 -m twine upload dist/*

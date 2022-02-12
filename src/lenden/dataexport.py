@@ -3,6 +3,15 @@ import json
 
 
 def compare(s, t):
+    """Compare two list without check the index
+
+    Args:
+        s (list): List A
+        t (list): List B
+
+    Returns:
+        [boolean]: True if the two list have the same values.
+    """
     t = list(t)   # make a mutable copy
     try:
         for elem in s:
@@ -13,27 +22,60 @@ def compare(s, t):
 
 
 class DisplayType(str, Enum):
+    """Display Enum Type
+    """
     grid = "grid"
+    """Display Type grid.
+    """
     row = "row"
-
+    """Display Type row.
+    """
 
 class ResultType(str, Enum):
+    """Result Enum Type
+    """
     str = "str"
+    """Result Type string.
+    """
     int = "int"
+    """Result Type integer.
+    """
     float = "float"
+    """Result Type float.
+    """
     percent = "percent"
+    """Result Type percent without the % simbol.
+    """
     image = "image"
+    """Result Type image.
+    """
     images = "images"
+    """Result Type array of images.
+    """
     numberarray = "numberarray"
-
+    """Result Type array number.
+    """
 
 class ResultSizeType(str, Enum):
+    """Result Size Type.
+    """
     normal = "normal"
+    """Result Type normal.
+    """
     wide = "wide"
+    """Result Type wide.
+    """
     big = "big"
+    """Result Type big.
+    """
 
 
 class ComplexEncoder(json.JSONEncoder):
+    """Complex Encoder Json
+
+    Args:
+        json ([type]): Object to  convert to JSON
+    """
     def default(self, obj):
         if hasattr(obj, '__toJSON'):
             return obj.__toJSON()
@@ -104,9 +146,13 @@ class DataExport(object):
         self.Version = Version
         self.HasError = HasError
         self.DisplayType = DisplayType
+        if Results is None:
+            Results = []
         self.Results = Results
         if Logs is None:
             Logs = DataLog("", [])
+        if Logs.Path is None:
+            Logs.Path = []
         self.Logs = Logs
 
     def __eq__(self, obj):
