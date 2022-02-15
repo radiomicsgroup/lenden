@@ -1,0 +1,14 @@
+{
+    "Version": 0.1,
+    "HasError": true,
+    "DisplayType": "grid",
+    "Results": [],
+    "Logs": {
+        "Description": "Voluptate sint sint eu aliqua consequat culpa nisi fugiat nostrud aute adipisicing.",
+        "Path": [
+            "/path/log1",
+            "/path/log2",
+            "/path/log3"
+        ]
+    }
+}

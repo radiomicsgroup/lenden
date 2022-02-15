@@ -1,0 +1,27 @@
+{
+    "Version": 0.1,
+    "HasError": false,
+    "DisplayType": "grid",
+    "Results": [
+        {
+            "Description": "Irure aute ex irure fugiat.",
+            "Help": "Ex consequat nostrud enim nulla dolore incididunt officia ullamco ut consequat mollit nulla.",
+            "Type": "image",
+            "Path": "/path/to/image",
+            "Size": "normal",
+            "Format": "f2%"
+        },
+        {
+            "Description": "Dolore culpa duis duis nulla duis eiusmod ullamco adipisicing aliqua.",
+            "Help": "Dolore mollit nulla.Nulla amet quis ad deserunt sit laboris irure incididunt est ea occaecat sunt.",
+            "Type": "numberarray",
+            "Path": "/path/to/numbersfile",
+            "Size": "big",
+            "Format": "%f12%"
+        }
+    ],
+    "Logs": {
+        "Description": "",
+        "Path": []
+    }
+}
