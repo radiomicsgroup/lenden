@@ -111,7 +111,7 @@ class DataLog(object):
 
 
 class DataExport(object):
-    def __init__(self, Version, HasError, DisplayType, Results, Logs=DataLog("", [])):
+    def __init__(self, Version, HasError, DisplayType, Results,CleanPatterns=[], Logs=DataLog("", [])):
         """DataExport
 
         Args:
@@ -119,6 +119,7 @@ class DataExport(object):
             HasError ([number]): 0  for Error and 1 for Not error
             DisplayType ([DisplayType]): Display Type
             Results ([list of DataResults]): List of DataResults
+            CleanPatterns ([list of strings]):  pattern pathname files
             Logs (Message, List of path of logs files): Logs in case of errors . Defaults to DataLog("", []).
         """
         self.Version = Version
@@ -127,6 +128,7 @@ class DataExport(object):
         if Results is None:
             Results = []
         self.Results = Results
+        self.CleanPatterns = CleanPatterns
         if Logs is None:
             Logs = DataLog("", [])
         if Logs.Path is None:
@@ -136,8 +138,10 @@ class DataExport(object):
     def __eq__(self, obj):
         r_local = self.Results
         r_obj = obj.Results
+        p_local = self.CleanPatterns
+        p_obj = obj.CleanPatterns
         return self.Version == obj.Version and self.HasError == obj.HasError \
-            and self.DisplayType == obj.DisplayType and compare(r_local, r_obj) and self.Logs == obj.Logs
+            and self.DisplayType == obj.DisplayType and compare(p_local,r_local) and compare(r_local, r_obj) and self.Logs == obj.Logs
 
     def getJSON(self):
         return json.dumps(self, default=lambda o: o.__dict__, indent=4)
@@ -146,4 +150,4 @@ class DataExport(object):
     def from_json(cls, data):
         Logs = DataLog.from_json(data["Logs"])
         Results = list(map(DataResults.from_json, data["Results"]))
-        return cls(data["Version"], data["HasError"], data["DisplayType"],Results,Logs)
+        return cls(data["Version"], data["HasError"], data["DisplayType"],Results,data["CleanPatterns"], Logs)
